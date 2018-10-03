@@ -20,7 +20,8 @@
           "name" : "id",
           "in" : "path",
           "description" : "",
-          "type" : "string",
+          "type" : "integer",
+          "format" : "int32",
           "required" : true
         } ],
         "responses" : {

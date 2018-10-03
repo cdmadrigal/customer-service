@@ -3,7 +3,7 @@
   <xsd:element name="CustomerDetails">
     <xsd:complexType>
       <xsd:sequence>
-                <xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:integer"/>
+                <xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
                 <xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
         <xsd:element maxOccurs="1" minOccurs="1" name="email" type="xsd:string"/>
                 <xsd:element name="account_id" type="xsd:integer"/>

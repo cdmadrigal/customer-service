@@ -648,6 +648,14 @@
             <bendpoints points="[25, -1, -149, 0]$[150, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://xmlns.example.com/Customer/parameters" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="http://xmlns.example.com/CustomerAccountDetails/parameters" prefix="tns1"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1499141585825"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://xmlns.example.com/Customer/parameters"/>
@@ -697,10 +705,32 @@
                                 portType="ns0:customer"
                                 tibex:xpdlId="87ab46ad-1a08-490d-b356-c6ffe8da1b1a" variable="getOut-input">
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170704020144PLT" xmlns:tns1="http://www.example.com/namespaces/tns/1499141585825" version="2.0"&gt;&lt;xsl:param name="GetCustomerDetails"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns:getResponse&gt;&lt;item&gt;&lt;tns1:CustomerDetails&gt;&lt;tns1:id&gt;&lt;xsl:value-of select="$GetCustomerDetails/tns1:id"/&gt;&lt;/tns1:id&gt;&lt;tns1:name&gt;&lt;xsl:value-of select="$GetCustomerDetails/tns1:name"/&gt;&lt;/tns1:name&gt;&lt;tns1:email&gt;&lt;xsl:value-of select="$GetCustomerDetails/tns1:email"/&gt;&lt;/tns1:email&gt;&lt;tns1:account_id&gt;&lt;xsl:value-of select="$GetCustomerDetails/tns1:account_id"/&gt;&lt;/tns1:account_id&gt;&lt;/tns1:CustomerDetails&gt;&lt;/item&gt;&lt;/tns:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns2="http://xmlns.example.com/20170704020144PLT" xmlns:tns3="http://www.example.com/namespaces/tns/1499141585825" version="2.0"&gt;
+    &lt;xsl:param name="GetCustomerDetails"/&gt;
+    &lt;xsl:template name="getOut-input" match="/"&gt;
+        &lt;tns2:getResponse&gt;
+            &lt;item&gt;
+                &lt;tns3:CustomerDetails&gt;
+                    &lt;tns3:id&gt;
+                        &lt;xsl:value-of select="$GetCustomerDetails/tns3:id"/&gt;
+                    &lt;/tns3:id&gt;
+                    &lt;tns3:name&gt;
+                        &lt;xsl:value-of select="$GetCustomerDetails/tns3:name"/&gt;
+                    &lt;/tns3:name&gt;
+                    &lt;tns3:email&gt;
+                        &lt;xsl:value-of select="$GetCustomerDetails/tns3:email"/&gt;
+                    &lt;/tns3:email&gt;
+                    &lt;tns3:account_id&gt;
+                        &lt;xsl:value-of select="$GetCustomerDetails/tns3:account_id"/&gt;
+                    &lt;/tns3:account_id&gt;
+                &lt;/tns3:CustomerDetails&gt;
+            &lt;/item&gt;
+        &lt;/tns2:getResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20170704020144PLT&quot; xmlns:tns1=&quot;http://www.example.com/namespaces/tns/1499141585825&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetCustomerDetails&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:CustomerDetails>&#xa;            &lt;tns1:id>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns1:id&quot;/>&#xa;            &lt;/tns1:id>&#xa;            &lt;tns1:name>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns1:name&quot;/>&#xa;            &lt;/tns1:name>&#xa;            &lt;tns1:email>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns1:email&quot;/>&#xa;            &lt;/tns1:email>&#xa;            &lt;tns1:account_id>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns1:account_id&quot;/>&#xa;            &lt;/tns1:account_id>&#xa;        &lt;/tns1:CustomerDetails>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://xmlns.example.com/20170704020144PLT&quot; xmlns:tns3=&quot;http://www.example.com/namespaces/tns/1499141585825&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetCustomerDetails&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:CustomerDetails>&#xa;            &lt;tns3:id>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns3:id&quot;/>&#xa;            &lt;/tns3:id>&#xa;            &lt;tns3:name>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns3:name&quot;/>&#xa;            &lt;/tns3:name>&#xa;            &lt;tns3:email>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns3:email&quot;/>&#xa;            &lt;/tns3:email>&#xa;            &lt;tns3:account_id>&#xa;                &lt;xsl:value-of select=&quot;$GetCustomerDetails/tns3:account_id&quot;/>&#xa;            &lt;/tns3:account_id>&#xa;        &lt;/tns3:CustomerDetails>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <bpws:targets>
                                     <bpws:target linkName="CallProcessTogetOut"/>
@@ -708,7 +738,7 @@
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/Customer/parameters&quot; xmlns:tns1=&quot;http://xmlns.example.com/CustomerAccountDetails/parameters&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;get&quot;/>&lt;xsl:template name=&quot;GetCustomerDetails-input&quot; match=&quot;/&quot;>&lt;tns1:customer-accountdetailsGetParameters>&lt;tns1:id>&lt;xsl:value-of select=&quot;$get/parameters/tns:customerGetParameters/tns:id&quot;/>&lt;/tns1:id>&lt;/tns1:customer-accountdetailsGetParameters>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/Customer/parameters&quot; xmlns:tns1=&quot;http://xmlns.example.com/CustomerAccountDetails/parameters&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;get&quot;/>&lt;xsl:template name=&quot;GetCustomerDetails-input&quot; match=&quot;/&quot;>&lt;tns1:customer-accountdetailsGetParameters>&lt;tns1:id>&lt;xsl:value-of select=&quot;$get/parameters/tns:customerGetParameters/tns:id&quot;/>&lt;/tns1:id>&lt;/tns1:customer-accountdetailsGetParameters>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="GetCustomerDetails-input"
                                     name="GetCustomerDetails"
@@ -720,7 +750,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/Customer/parameters&quot; xmlns:tns1=&quot;http://xmlns.example.com/CustomerAccountDetails/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;get.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;GetCustomerDetails-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:customer-accountdetailsGetParameters>&#xa;            &lt;tns1:id>&#xa;                &lt;xsl:value-of select=&quot;$get.parameters/tns:id&quot;/>&#xa;            &lt;/tns1:id>&#xa;        &lt;/tns1:customer-accountdetailsGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/Customer/parameters&quot; xmlns:tns1=&quot;http://xmlns.example.com/CustomerAccountDetails/parameters&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;get.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;GetCustomerDetails-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:customer-accountdetailsGetParameters>&#xa;            &lt;tns1:id>&#xa;                &lt;xsl:value-of select=&quot;$get.parameters/tns:id&quot;/>&#xa;            &lt;/tns1:id>&#xa;        &lt;/tns1:customer-accountdetailsGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="customerservice.module.db.GetCutomerDetails" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
